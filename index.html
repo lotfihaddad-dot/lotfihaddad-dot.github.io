@@ -1,39 +1,91 @@
-import os
-
-def generate_index():
-    folders = ['cours', 'ds', 'colles', 'annales', 'exercices']
-    
-    html = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Maths MP - Ressources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths MP - Ressources gratuites</title>
     <style>
-        body { font-family: Arial; max-width: 1000px; margin: auto; padding: 20px; }
-        h1 { color: #2c3e50; }
-        a { text-decoration: none; color: #3498db; }
-        li { margin: 10px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: white;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .file-size {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>📐 Maths MP - Toutes les ressources</h1>
-'''
+    <h1>📐 Maths MP - Ressources gratuites</h1>
+    <p>Bienvenue sur mon site de partage de ressources pour la classe préparatoire MP.</p>
     
-    for folder in folders:
-        if os.path.exists(folder):
-            html += f'    <h2>📁 {folder.upper()}</h2>\n    <ul>\n'
-            for root, dirs, files in os.walk(folder):
-                for file in sorted(files):
-                    if file.endswith('.pdf'):
-                        path = os.path.join(root, file).replace('\\', '/')
-                        html += f'        <li><a href="{path}">{file}</a></li>\n'
-            html += '    </ul>\n'
+    <h2>📚 Problèmes et corrigés</h2>
+    <ul>
+        <li>
+            <strong>Fonction Zéta</strong><br>
+            <a href="Calcul de zéta de deux.pdf">📄 Sujet</a> | 
+            <a href="Correction du problème Autour de la fonction Zéta.pdf">✅ Corrigé</a>
+        </li>
+        <li>
+            <strong>Polynômes de Bernstein et théorème de Weierstrass</strong><br>
+            <a href="Polynômes de Bernstein et théorème de Weierstrass.pdf">📄 Sujet</a> | 
+            <a href="Correction du problème Bernstein et Weierstrass.pdf">✅ Corrigé</a>
+        </li>
+        <li>
+            <strong>Intégrales de Wallis et formule de Stirling</strong><br>
+            <a href="Problème Intégrales de Wallis et formule de Stirling.pdf">📄 Sujet</a> | 
+            <a href="Correction du problème Wallis et Strirling.pdf">✅ Corrigé</a>
+        </li>
+        <li>
+            <strong>Fonction Gamma</strong><br>
+            <a href="gamma.pdf">📄 Sujet</a> | 
+            <a href="Correction du problème Étude de la fonction Gamma.pdf">✅ Corrigé</a>
+        </li>
+    </ul>
     
-    html += '</body></html>'
-    
-    with open('index.html', 'w', encoding='utf-8') as f:
-        f.write(html)
-    print("Index généré !")
-
-if __name__ == "__main__":
-    generate_index()
+    <footer>
+        <p>Site créé avec ❤️ pour les étudiants de MP - Tous les contenus sont gratuits</p>
+        <p>Dernière mise à jour : Mars 2026</p>
+    </footer>
+</body>
+</html>
