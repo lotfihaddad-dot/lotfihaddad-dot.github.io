@@ -1,24 +1,39 @@
-<!DOCTYPE html>
+import os
+
+def generate_index():
+    folders = ['cours', 'ds', 'colles', 'annales', 'exercices']
+    
+    html = '''<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Maths MP</title>
+    <title>Maths MP - Ressources</title>
+    <style>
+        body { font-family: Arial; max-width: 1000px; margin: auto; padding: 20px; }
+        h1 { color: #2c3e50; }
+        a { text-decoration: none; color: #3498db; }
+        li { margin: 10px 0; }
+    </style>
 </head>
 <body>
-    <h1>Maths MP - Ressources gratuites</h1>
-    <p>Bienvenue sur mon site de maths pour la prépa MP.</p>
+    <h1>📐 Maths MP - Toutes les ressources</h1>
+'''
     
-    <h2>Devoirs surveillés</h2>
-    <ul>
-        <li>DS1 - Sujet | Corrigé (à venir)</li>
-        <li>DS2 - Sujet | Corrigé (à venir)</li>
-    </ul>
+    for folder in folders:
+        if os.path.exists(folder):
+            html += f'    <h2>📁 {folder.upper()}</h2>\n    <ul>\n'
+            for root, dirs, files in os.walk(folder):
+                for file in sorted(files):
+                    if file.endswith('.pdf'):
+                        path = os.path.join(root, file).replace('\\', '/')
+                        html += f'        <li><a href="{path}">{file}</a></li>\n'
+            html += '    </ul>\n'
     
-    <h2>Interrogations</h2>
-    <ul>
-        <li>Interrogation 1 (à venir)</li>
-    </ul>
+    html += '</body></html>'
     
-    <p>Tous les contenus sont gratuits.</p>
-</body>
-</html>
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(html)
+    print("Index généré !")
+
+if __name__ == "__main__":
+    generate_index()
