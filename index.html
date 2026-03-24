@@ -3,89 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maths MP - Ressources gratuites</title>
+    <title>Mathématiques - Haddad Lotfi</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            max-width: 1000px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
         }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+        /* En-tête avec photo */
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
-        h2 {
-            color: #2980b9;
-            margin-top: 30px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            background: #3a6ea5;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+        .profile-info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-        li {
+        .profile-info h2 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 8px;
+            color: #ffd966;
+        }
+        .profile-info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* Menu */
+        .menu {
             background: white;
-            margin: 10px 0;
-            padding: 12px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
         }
-        a {
+        .menu a {
+            color: #1e3c72;
             text-decoration: none;
-            color: #3498db;
             font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s;
         }
-        a:hover {
-            text-decoration: underline;
+        .menu a:hover {
+            background: #1e3c72;
+            color: white;
         }
-        .file-size {
-            color: #7f8c8d;
-            font-size: 12px;
+        /* Sections des filières */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #1e3c72;
+            border-bottom: 2px solid #ffd966;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .submenu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .submenu a {
+            background: #f0f2f5;
+            color: #1e3c72;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .submenu a:hover {
+            background: #1e3c72;
+            color: white;
+        }
+        /* Mentions légales */
+        .legal {
+            background: #e8f0fe;
+            border-left: 4px solid #1e3c72;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .legal h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        .legal ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .legal li {
+            margin: 5px 0;
         }
         footer {
-            margin-top: 50px;
             text-align: center;
-            color: #7f8c8d;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
             border-top: 1px solid #ddd;
-            padding-top: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .submenu {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>📐 Maths MP - Ressources gratuites</h1>
-    <p>Bienvenue sur mon site de partage de ressources pour la classe préparatoire MP.</p>
-    
-    <h2>📚 Problèmes et corrigés</h2>
-    <ul>
-        <li>
-            <strong>Fonction Zéta</strong><br>
-            <a href="Calcul de zéta de deux.pdf">📄 Sujet</a> | 
-            <a href="Correction du problème Autour de la fonction Zéta.pdf">✅ Corrigé</a>
-        </li>
-        <li>
-            <strong>Polynômes de Bernstein et théorème de Weierstrass</strong><br>
-            <a href="Polynômes de Bernstein et théorème de Weierstrass.pdf">📄 Sujet</a> | 
-            <a href="Correction du problème Bernstein et Weierstrass.pdf">✅ Corrigé</a>
-        </li>
-        <li>
-            <strong>Intégrales de Wallis et formule de Stirling</strong><br>
-            <a href="Problème Intégrales de Wallis et formule de Stirling.pdf">📄 Sujet</a> | 
-            <a href="Correction du problème Wallis et Strirling.pdf">✅ Corrigé</a>
-        </li>
-        <li>
-            <strong>Fonction Gamma</strong><br>
-            <a href="gamma.pdf">📄 Sujet</a> | 
-            <a href="Correction du problème Étude de la fonction Gamma.pdf">✅ Corrigé</a>
-        </li>
-    </ul>
-    
-    <footer>
-        <p>Site créé avec ❤️ pour les étudiants de MP - Tous les contenus sont gratuits</p>
-        <p>Dernière mise à jour : Mars 2026</p>
-    </footer>
+    <div class="container">
+        <!-- En-tête avec photo -->
+        <div class="header">
+            <div class="profile-img">
+                📐
+            </div>
+            <div class="profile-info">
+                <h1>Haddad Lotfi</h1>
+                <h2>Enseignant agrégé principal émérite en sciences mathématiques</h2>
+                <p>Institut Préparatoire aux Études d'Ingénieurs El Manar</p>
+                <p>Ancien élève à l'École Normale Supérieure de Bizerte</p>
+            </div>
+        </div>
+
+        <!-- Menu principal -->
+        <div class="menu">
+            <a href="#">Accueil</a>
+            <a href="#">MP</a>
+            <a href="#">MPSI</a>
+            <a href="#">PC/PT</a>
+            <a href="#">PCSI/PTSI</a>
+            <a href="#">Concours nationaux tunisiens</a>
+            <a href="#">Liens</a>
+        </div>
+
+        <!-- Section MP -->
+        <div class="section">
+            <h2>📘 MP (Maths-Physique)</h2>
+            <div class="submenu">
+                <a href="#">Cours</a>
+                <a href="#">Séries d'exercices</a>
+                <a href="#">Problèmes</a>
+                <a href="#">Devoirs</a>
+                <a href="#">Divers</a>
+                <a href="#">Archives des années précédentes</a>
+            </div>
+        </div>
+
+        <!-- Section MPSI -->
+        <div class="section">
+            <h2>📗 MPSI (Maths-Physique-Sciences de l'Ingénieur)</h2>
+            <div class="submenu">
+                <a href="#">Cours</a>
+                <a href="#">Séries d'exercices</a>
+                <a href="#">Problèmes</a>
+                <a href="#">Devoirs</a>
+                <a href="#">Divers</a>
+                <a href="#">Archives des années précédentes</a>
+            </div>
+        </div>
+
+        <!-- Section PC/PT -->
+        <div class="section">
+            <h2>📙 PC/PT (Physique-Chimie / Physique-Technologie)</h2>
+            <div class="submenu">
+                <a href="#">Cours</a>
+                <a href="#">Séries d'exercices</a>
+                <a href="#">Problèmes</a>
+                <a href="#">Devoirs</a>
+                <a href="#">Divers</a>
+                <a href="#">Archives des années précédentes</a>
+            </div>
+        </div>
+
+        <!-- Section PCSI/PTSI -->
+        <div class="section">
+            <h2>📖 PCSI/PTSI</h2>
+            <div class="submenu">
+                <a href="#">Cours</a>
+                <a href="#">Séries d'exercices</a>
+                <a href="#">Problèmes</a>
+                <a href="#">Devoirs</a>
+                <a href="#">Divers</a>
+                <a href="#">Archives des années précédentes</a>
+            </div>
+        </div>
+
+        <!-- Mentions légales -->
+        <div class="legal">
+            <h3>📢 À propos de ce site</h3>
+            <p>Ce site propose essentiellement des documents mathématiques au format PDF.</p>
+            <p><strong>Les documents proposés ici, le sont à titre gratuit. Il est autorisé :</strong></p>
+            <ul>
+                <li>✅ de les étudier,</li>
+                <li>✅ de les imprimer,</li>
+                <li>✅ de les diffuser à titre gratuit.</li>
+            </ul>
+            <p style="margin-top: 10px; font-style: italic;">Les sources des documents proposés ici sont des formats ".tex". Je les garde secrètes.</p>
+            <p style="margin-top: 15px;">📌 <strong>Bonne visite !</strong></p>
+        </div>
+
+        <footer>
+            <p>Haddad Lotfi - Institut Préparatoire aux Études d'Ingénieurs El Manar</p>
+            <p>Tous les contenus sont gratuits - Dernière mise à jour : Mars 2026</p>
+        </footer>
+    </div>
 </body>
 </html>
