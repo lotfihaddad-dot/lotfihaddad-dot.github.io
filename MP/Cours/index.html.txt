@@ -1,129 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Documents</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #f8f9fa;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 12px 0;
-            padding: 12px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.1s ease;
-        }
-        li:hover {
-            transform: translateX(5px);
-            background: #f0f7ff;
-        }
-        a {
-            text-decoration: none;
-            color: #2980b9;
-            font-weight: 500;
-            display: block;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #1c5a7a;
-        }
-        .retour {
-            margin-top: 30px;
-            padding: 12px;
-            background: #e9ecef;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .retour a {
-            display: inline-block;
-            color: #2c3e50;
-        }
-    </style>
+    <title>Cours MP</title>
 </head>
 <body>
-    <h1 id="titre-filiere">📚 Documents</h1>
-    <!-- Ajout manuel du résumé -->
+    <h1>📚 Cours MP</h1>
     <ul>
-        <li><a href="Résumé_du_cours_de_Maths_1_MP.pdf">📄 Résumé du cours de Maths 1 MP</a></li>
+        <li><a href="Résumé_du_cours_de_Maths_1_MP.pdf">Résumé du cours de Maths 1 MP</a></li>
     </ul>
-    <ul id="liste-docs"></ul>
-    <div class="retour">
-        <a href="../index.html">← Retour à l'accueil</a>
-    </div>
-
-    <script>
-        // Détecter automatiquement le nom du dossier courant (MP, MPSI, etc.)
-        const chemin = window.location.pathname;
-        const nomDossier = chemin.split('/').filter(p => p)[0] || 'documents';
-        document.getElementById('titre-filiere').innerHTML = `📚 Documents ${nomDossier}`;
-        
-        // Extensions de fichiers à afficher
-        const extensions = ['pdf', 'doc', 'docx', 'txt', 'odt', 'jpg', 'png', 'gif', 'xls', 'xlsx'];
-        
-        // Récupérer la liste des fichiers dans le dossier courant
-        const url = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/';
-        
-        fetch(url)
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const links = doc.querySelectorAll('a');
-                const ul = document.getElementById('liste-docs');
-                let fichiersTrouves = 0;
-                
-                links.forEach(link => {
-                    let href = link.getAttribute('href');
-                    if (href && !href.startsWith('?') && href !== './' && href !== '../' && href !== '/' && href !== 'index.html' && !href.includes('index.html')) {
-                        // Vérifier l'extension
-                        const ext = href.split('.').pop().toLowerCase();
-                        if (extensions.includes(ext)) {
-                            fichiersTrouves++;
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            // Décoder le nom du fichier (pour les accents)
-                            let nomFichier = decodeURIComponent(href);
-                            // Nettoyer le nom
-                            nomFichier = nomFichier.replace(/_/g, ' ').replace(/\.pdf$/i, '');
-                            a.href = href;
-                            a.textContent = nomFichier;
-                            li.appendChild(a);
-                            ul.appendChild(li);
-                        }
-                    }
-                });
-                
-                if (fichiersTrouves === 0) {
-                    ul.innerHTML = '<li style="text-align:center; color:#7f8c8d;">📭 Aucun document pour le moment. Les fichiers seront bientôt ajoutés.</li>';
-                } else {
-                    // Ajouter un compteur
-                    const compteur = document.createElement('p');
-                    compteur.style.textAlign = 'center';
-                    compteur.style.color = '#7f8c8d';
-                    compteur.style.marginTop = '20px';
-                    compteur.innerHTML = `📄 ${fichiersTrouves} document(s) disponible(s)`;
-                    ul.parentNode.insertBefore(compteur, ul.nextSibling);
-                }
-            })
-            .catch(() => {
-                document.getElementById('liste-docs').innerHTML = '<li>⚠️ Impossible de charger la liste des fichiers.</li>';
-            });
-    </script>
+    <p><a href="../../index.html">← Retour à l'accueil</a></p>
 </body>
 </html>
