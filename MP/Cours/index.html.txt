@@ -58,6 +58,10 @@
 </head>
 <body>
     <h1 id="titre-filiere">📚 Documents</h1>
+    <!-- Ajout manuel du résumé -->
+    <ul>
+        <li><a href="Résumé_du_cours_de_Maths_1_MP.pdf">📄 Résumé du cours de Maths 1 MP</a></li>
+    </ul>
     <ul id="liste-docs"></ul>
     <div class="retour">
         <a href="../index.html">← Retour à l'accueil</a>
