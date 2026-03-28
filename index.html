@@ -12,168 +12,187 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        /* Bandeau de construction */
-        .construction {
-            background-color: #ffd966;
-            color: #1e3c72;
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            font-weight: bold;
+        /* Navbar */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 20px;
         }
-        /* En-tête avec photo */
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+            text-decoration: none;
+        }
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .navbar-nav a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar-nav a:hover {
+            color: #1e3c72;
+        }
+        /* Header */
         .header {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
             gap: 30px;
             flex-wrap: wrap;
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            background-color: #3a6ea5;
+            background: rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
+            font-size: 60px;
         }
         .profile-info h1 {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
         }
         .profile-info h2 {
             font-size: 18px;
             font-weight: normal;
-            margin-bottom: 8px;
             color: #ffd966;
         }
-        .profile-info p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        /* Menu */
-        .menu {
-            background: white;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .menu a {
+        /* Cards pour les filières */
+        .section-title {
+            font-size: 28px;
+            margin: 40px 0 20px;
             color: #1e3c72;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 25px;
-            transition: all 0.3s;
+            border-left: 5px solid #ffd966;
+            padding-left: 20px;
         }
-        .menu a:hover {
-            background: #1e3c72;
-            color: white;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
         }
-        /* Sections des filières */
-        .section {
+        .card {
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
             padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-        .section h2 {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
             color: #1e3c72;
-            border-bottom: 2px solid #ffd966;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
         }
-        .submenu {
+        .card p {
+            color: #475569;
+            font-size: 14px;
+        }
+        /* Sections internes */
+        .internal-links {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 15px;
         }
-        .submenu a {
-            background: #f0f2f5;
-            color: #1e3c72;
+        .internal-links a {
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s;
+            color: #1e3c72;
+            transition: all 0.2s;
         }
-        .submenu a:hover {
+        .internal-links a:hover {
             background: #1e3c72;
             color: white;
         }
-        /* Mentions légales */
+        /* Footer */
         .legal {
-            background: #e8f0fe;
-            border-left: 4px solid #1e3c72;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-        .legal h3 {
-            color: #1e3c72;
-            margin-bottom: 10px;
-        }
-        .legal ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        .legal li {
-            margin: 5px 0;
+            background: #eef2ff;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
         }
         footer {
             text-align: center;
             padding: 20px;
-            color: #666;
+            color: #64748b;
             font-size: 14px;
-            border-top: 1px solid #ddd;
-            margin-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 40px;
         }
         @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                gap: 15px;
+            }
             .header {
                 flex-direction: column;
                 text-align: center;
-            }
-            .submenu {
-                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Bandeau de construction -->
-    <div class="construction">
-        🚧 Ce site est en cours de construction - De nouvelles ressources seront ajoutées régulièrement 🚧
+    <div class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">📐 Haddad Lotfi</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">Cours</a></li>
+                <li><a href="#">Exercices</a></li>
+                <li><a href="#">Devoirs</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="container">
-        <!-- En-tête avec photo -->
         <div class="header">
-            <div class="profile-img">
-                📐
-            </div>
+            <div class="profile-img">📐</div>
             <div class="profile-info">
                 <h1>Haddad Lotfi</h1>
                 <h2>Enseignant agrégé principal émérite en sciences mathématiques</h2>
@@ -182,109 +201,84 @@
             </div>
         </div>
 
-        <!-- Menu principal -->
-        <div class="menu">
-            <a href="#">Accueil</a>
-            <a href="#">MP</a>
-            <a href="#">MPSI</a>
-            <a href="#">PC</a>
-            <a href="#">PT</a>
-            <a href="#">PCSI</a>
-            <a href="#">PTSI</a>
-            <a href="#">Concours nationaux tunisiens</a>
-            <a href="#">Liens</a>
+        <h2 class="section-title">📚 Accès par filière</h2>
+        <div class="grid">
+            <a href="MP/" class="card">
+                <h3>📘 MP</h3>
+                <p>Mathématiques et Physique - 2ème année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="MPSI/" class="card">
+                <h3>📗 MPSI</h3>
+                <p>Mathématiques et Physique - 1ère année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="PC/" class="card">
+                <h3>🔬 PC</h3>
+                <p>Physique et Chimie - 2ème année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="PT/" class="card">
+                <h3>⚙️ PT</h3>
+                <p>Physique et Technologie - 2ème année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="PCSI/" class="card">
+                <h3>🧪 PCSI</h3>
+                <p>Physique et Chimie - 1ère année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="PTSI/" class="card">
+                <h3>🛠️ PTSI</h3>
+                <p>Physique et Technologie - 1ère année</p>
+                <div class="internal-links">
+                    <span>Cours</span>
+                    <span>Exercices</span>
+                    <span>Problèmes</span>
+                    <span>Devoirs</span>
+                </div>
+            </a>
+            <a href="Concours_nationaux_tunisiens/" class="card">
+                <h3>📂 Concours nationaux tunisiens</h3>
+                <p>Annales, sujets et corrigés</p>
+                <div class="internal-links">
+                    <span>Maths 1 MP</span>
+                    <span>Maths 2 MP</span>
+                    <span>Maths PC/PT</span>
+                </div>
+            </a>
         </div>
 
-        <!-- Section MP -->
-        <div class="section">
-            <h2>📘 MP (deuxième année Mathématiques et Physique)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Section MPSI -->
-        <div class="section">
-            <h2>📗 MPSI (première année Mathématiques et Physique)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Section PC -->
-        <div class="section">
-            <h2>🧪 PC (deuxième année Physique et Chimie)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Section PT -->
-        <div class="section">
-            <h2>⚙️ PT (deuxième année préparatoire Technologie)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Section PCSI -->
-        <div class="section">
-            <h2>🔬 PCSI (première année Physique et Chimie)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Section PTSI -->
-        <div class="section">
-            <h2>🛠️ PTSI (première année préparatoire Technologie)</h2>
-            <div class="submenu">
-                <a href="#">Cours</a>
-                <a href="#">Séries d'exercices</a>
-                <a href="#">Problèmes</a>
-                <a href="#">Devoirs</a>
-                <a href="#">Divers</a>
-                <a href="#">Archives des années précédentes</a>
-            </div>
-        </div>
-
-        <!-- Mentions légales -->
         <div class="legal">
             <h3>📢 À propos de ce site</h3>
-            <p>Ce site propose essentiellement des documents mathématiques au format PDF.</p>
-            <p><strong>Les documents proposés ici, le sont à titre gratuit. Il est autorisé :</strong></p>
-            <ul>
-                <li>✅ de les étudier,</li>
-                <li>✅ de les imprimer,</li>
-                <li>✅ de les diffuser à titre gratuit.</li>
-            </ul>
-            <p style="margin-top: 10px; font-style: italic;">Les sources des documents proposés ici sont des formats ".tex". Je les garde secrètes.</p>
-            <p style="margin-top: 15px;">📌 <strong>Bonne visite !</strong></p>
+            <p>Ce site propose essentiellement des documents mathématiques au format PDF, librement téléchargeables.</p>
+            <p><strong>Les documents sont gratuits. Il est autorisé de les étudier, les imprimer et les diffuser gratuitement.</strong></p>
+            <p style="margin-top: 15px;">📌 Bonne visite !</p>
         </div>
 
         <footer>
