@@ -3,41 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Problèmes MP</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        h1 { color: #1e3c72; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 15px 0; padding: 10px; background: #f5f5f5; border-radius: 8px; }
+        a { text-decoration: none; color: #2a5298; }
+        a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
     <h1>📚 Problèmes MP</h1>
-    <ul id="liste-docs"></ul>
+    <ul>
+        <li><a href="Problème  Intégrales de Wallis et formule de Stirling.pdf">Problème 1</a></li>
+        <li><a href="Polynômes de Bernstein et théorème de Weierstrass".pdf>Problème 2</a></li>
+        <li><a href="zeta.pdff">Problème 3</a></li>
+        <li><a href="gamma.pdf">Problème 4</a></li>
+    </ul>
     <p><a href="../../index.html">← Retour à l'accueil</a></p>
-
-    <script>
-        const fichiers = [];
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', './', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const lignes = xhr.responseText.split('\n');
-                lignes.forEach(ligne => {
-                    const match = ligne.match(/<a href="([^"]+\.pdf)"/i);
-                    if (match) {
-                        fichiers.push(match[1]);
-                    }
-                });
-                const ul = document.getElementById('liste-docs');
-                if (fichiers.length === 0) {
-                    ul.innerHTML = '<li>Aucun problème pour le moment.</li>';
-                } else {
-                    fichiers.forEach(fichier => {
-                        const li = document.createElement('li');
-                        const a = document.createElement('a');
-                        a.href = fichier;
-                        a.textContent = fichier.replace(/\.pdf$/i, '');
-                        li.appendChild(a);
-                        ul.appendChild(li);
-                    });
-                }
-            }
-        };
-        xhr.send();
-    </script>
 </body>
 </html>
