@@ -10,7 +10,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .construction { background-color: #ffd966; color: #1e3c72; text-align: center; padding: 10px; margin-bottom: 20px; border-radius: 8px; font-weight: bold; }
         .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; background-color: #3a6ea5; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; background-color: #3a6ea5; display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; border: 3px solid #ffd966; }
         .profile-info h1 { font-size: 28px; margin-bottom: 10px; }
         .profile-info h2 { font-size: 18px; font-weight: normal; margin-bottom: 8px; color: #ffd966; }
         .profile-info p { font-size: 14px; opacity: 0.9; }
@@ -19,13 +19,14 @@
         .menu a:hover { background: #1e3c72; color: white; }
         .section { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .section h2 { color: #1e3c72; border-bottom: 2px solid #ffd966; padding-bottom: 10px; margin-bottom: 20px; }
-        .auto-list { margin-top: 15px; padding: 10px; background: #fafafa; border-radius: 5px; }
-        .auto-list ul { list-style: none; }
-        .auto-list li { margin: 8px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .auto-list a { color: #2a5298; text-decoration: none; font-weight: 500; }
-        .auto-list a:hover { text-decoration: underline; color: #d9534f; }
+        .file-list { margin-top: 15px; padding: 10px; background: #fafafa; border-radius: 8px; }
+        .file-list ul { list-style: none; }
+        .file-list li { padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+        .file-list a { color: #1e3c72; text-decoration: none; font-weight: bold; }
+        .file-list a:hover { color: #d9534f; text-decoration: underline; }
         .legal { background: #e8f0fe; border-left: 4px solid #1e3c72; padding: 20px; margin: 30px 0; border-radius: 8px; }
         footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 20px; }
+        @media (max-width: 768px) { .header { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -36,9 +37,9 @@
 
 <div class="container">
     <div class="header">
-       <div class="profile-img">
-    <img src="photo-profil.jpg" alt="Haddad Lotfi" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-    </div>
+        <div class="profile-img">
+            <img src="photo-profil.jpg" alt="📐" onerror="this.style.display='none'; this.parentElement.innerHTML='📐';" style="width:100%; height:100%; object-fit:cover;">
+        </div>
         <div class="profile-info">
             <h1>Haddad Lotfi</h1>
             <h2>Enseignant agrégé principal émérite en sciences mathématiques</h2>
@@ -54,85 +55,77 @@
         <a href="#pcpt">PC/PT</a>
         <a href="#pcsi">PCSI/PTSI</a>
         <a href="#concours">Concours</a>
-        <a href="#liens">Liens</a>
     </div>
 
-    <!-- MP -->
     <div class="section" id="mp">
         <h2>📘 MP (Deuxième année Mathématiques et Physique)</h2>
-        <div id="liste-MP" class="auto-list">Chargement des documents...</div>
+        <div id="list-MP" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- MPSI -->
     <div class="section" id="mpsi">
         <h2>📗 MPSI (Première année Mathématiques et Physique)</h2>
-        <div id="liste-MPSI" class="auto-list">Chargement des documents...</div>
+        <div id="list-MPSI" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- PC/PT -->
     <div class="section" id="pcpt">
         <h2>🔬⚙️ PC/PT (Deuxièmes années Physique et Chimie / Physique et Technologie)</h2>
-        <div id="liste-PCPT" class="auto-list">Chargement des documents...</div>
+        <div id="list-PCPT" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- PCSI/PTSI -->
     <div class="section" id="pcsi">
-        <h2>🧪🛠️ PCSI/PTSI (Premières années Physique et Chimie / Physique et Technologie)</h2>
-        <div id="liste-PCSI" class="auto-list">Chargement des documents...</div>
+        <h2>🧪🛠️ PCSI/PTSI (Premières années)</h2>
+        <div id="list-PCSI" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Concours -->
     <div class="section" id="concours">
         <h2>📂 Concours nationaux tunisiens</h2>
-        <div id="liste-Concours" class="auto-list">Chargement des documents...</div>
+        <div id="list-Concours" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Liens -->
-    <div class="section" id="liens">
-        <h2>🔗 Liens</h2>
-        <div id="liste-Liens" class="auto-list">Chargement des documents...</div>
-    </div>
-
-    <div class="legal">
+    <div class="legal" id="accueil">
         <h3>📢 À propos de ce site</h3>
         <p>Ce site propose essentiellement des documents mathématiques au format PDF, librement téléchargeables.</p>
         <p><strong>Les documents sont gratuits. Il est autorisé de les étudier, les imprimer et les diffuser gratuitement.</strong></p>
     </div>
 
     <footer>
-        Haddad Lotfi - IPEI El Manar - Dernière mise à jour : Mars 2026
+        <p>Haddad Lotfi - IPEI El Manar - Dernière mise à jour : Mars 2026</p>
     </footer>
 </div>
 
 <script>
-const GITHUB_USER = "lotfihaddad-dot";
-const GITHUB_REPO = "lotfihaddad-dot.github.io";
+const GITHUB_API = "https://api.github.com";
 
-async function chargerDossier(nomDossier, idElement) {
+async function loadFiles(subFolder, elementId) {
     try {
-        const response = await fetch(`https://api.github.com{GITHUB_USER}/${GITHUB_REPO}/contents/${nomDossier}`);
-        if (!response.ok) throw new Error();
+        const response = await fetch(`${GITHUB_API}/${subFolder}`);
         const files = await response.json();
         let html = "<ul>";
-        files.forEach(file => {
-            if (file.name.toLowerCase().endsWith('.pdf')) {
-                html += `<li><a href="${file.path}" target="_blank">📄 ${file.name}</a></li>`;
+        
+        if (Array.isArray(files)) {
+            const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf'));
+            if (pdfFiles.length > 0) {
+                pdfFiles.forEach(f => {
+                    html += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
+                });
+                document.getElementById(elementId).innerHTML = html + "</ul>";
+            } else {
+                document.getElementById(elementId).innerHTML = "<em>Aucun PDF dans ce dossier.</em>";
             }
-        });
-        document.getElementById(idElement).innerHTML = html + "</ul>";
+        }
     } catch (e) {
-        document.getElementById(idElement).innerHTML = "<em>Aucun document dans ce dossier.</em>";
+        document.getElementById(elementId).innerHTML = "<em>Dossier non encore publié.</em>";
     }
 }
 
-// Chargement automatique des dossiers présents sur votre PC
-chargerDossier("MP", "liste-MP");
-chargerDossier("MPSI", "liste-MPSI");
-chargerDossier("PCPT", "liste-PCPT");
-chargerDossier("PCSI", "liste-PCSI");
-chargerDossier("Concours", "liste-Concours");
-chargerDossier("Liens", "liste-Liens");
+// Lancement automatique
+loadFiles("MP", "list-MP");
+loadFiles("MPSI", "list-MPSI");
+loadFiles("PC_PT", "list-PCPT");
+loadFiles("PCSI_PTSI", "list-PCSI");
+loadFiles("Concours_nationaux_tunisiens", "list-Concours");
 </script>
 
 </body>
 </html>
+
