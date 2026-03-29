@@ -103,14 +103,17 @@ async function loadFiles(subFolder, elementId) {
         let html = "<ul>";
         
         if (Array.isArray(files)) {
+            // FILTRE : On ne garde QUE les fichiers .pdf (on ignore les index.html et le reste)
             const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf'));
+            
             if (pdfFiles.length > 0) {
                 pdfFiles.forEach(f => {
+                    // On affiche le nom propre du fichier
                     html += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
                 });
                 document.getElementById(elementId).innerHTML = html + "</ul>";
             } else {
-                document.getElementById(elementId).innerHTML = "<em>Aucun PDF dans ce dossier.</em>";
+                document.getElementById(elementId).innerHTML = "<em>Documents en cours d'ajout...</em>";
             }
         }
     } catch (e) {
@@ -118,7 +121,7 @@ async function loadFiles(subFolder, elementId) {
     }
 }
 
-// Lancement automatique
+// Lancement automatique pour vos sections
 loadFiles("MP", "list-MP");
 loadFiles("MPSI", "list-MPSI");
 loadFiles("PC_PT", "list-PCPT");
