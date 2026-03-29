@@ -125,6 +125,28 @@
     </style>
 </head>
 <body>
+<div style="background: #f9f9f9; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+    <h3>Documents mis à jour automatiquement :</h3>
+    <div id="affichage-automatique">Chargement des fichiers...</div>
+</div>
+
+<script>
+async function listerMesFichiers() {
+    const url = "https://api.github.com";
+    const response = await fetch(url);
+    const data = await response.json();
+    let html = "<ul>";
+    
+    data.forEach(file => {
+        // Cela affiche TOUS vos PDF avec le nom que VOUS avez choisi sur votre PC
+        if (file.name.endsWith('.pdf')) {
+            html += `<li><a href="${file.path}" target="_blank" style="font-weight:bold; color:#004a99;">${file.name}</a></li>`;
+        }
+    });
+    document.getElementById("affichage-automatique").innerHTML = html + "</ul>";
+}
+listerMesFichiers();
+</script>
 
 <div class="construction">
     🚧 Ce site est en cours de construction - De nouvelles ressources seront ajoutées régulièrement 🚧
