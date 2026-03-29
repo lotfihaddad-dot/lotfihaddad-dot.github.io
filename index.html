@@ -10,7 +10,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .construction { background-color: #ffd966; color: #1e3c72; text-align: center; padding: 10px; margin-bottom: 20px; border-radius: 8px; font-weight: bold; }
         .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; background-color: #3a6ea5; display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; background-color: #3a6ea5; display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; border: 3px solid #ffd966; }
         .profile-info h1 { font-size: 28px; margin-bottom: 10px; }
         .profile-info h2 { font-size: 18px; font-weight: normal; margin-bottom: 8px; color: #ffd966; }
         .profile-info p { font-size: 14px; opacity: 0.9; }
@@ -23,7 +23,7 @@
         .file-list ul { list-style: none; }
         .file-list li { padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center; }
         .file-list a { color: #1e3c72; text-decoration: none; font-weight: bold; }
-        .file-list a:hover { color: #d9534f; }
+        .file-list a:hover { color: #d9534f; text-decoration: underline; }
         .legal { background: #e8f0fe; border-left: 4px solid #1e3c72; padding: 20px; margin: 30px 0; border-radius: 8px; }
         footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 20px; }
         @media (max-width: 768px) { .header { flex-direction: column; text-align: center; } }
@@ -94,29 +94,31 @@
 </div>
 
 <script>
-const GITHUB_PATH = "https://api.github.com";
+const GITHUB_API = "https://api.github.com";
 
 async function loadFiles(subFolder, elementId) {
     try {
-        const response = await fetch(`${GITHUB_PATH}/${subFolder}`);
+        const response = await fetch(`${GITHUB_API}/${subFolder}`);
         const files = await response.json();
         let html = "<ul>";
-        if (files.length > 0) {
-            files.forEach(f => {
-                if(f.name.toLowerCase().endsWith('.pdf')) {
-                    html += `<li>📄 <a href="${f.path}" target="_blank">${f.name}</a></li>`;
-                }
-            });
-            document.getElementById(elementId).innerHTML = html + "</ul>";
-        } else {
-            document.getElementById(elementId).innerHTML = "Aucun document trouvé.";
+        
+        if (Array.isArray(files)) {
+            const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf'));
+            if (pdfFiles.length > 0) {
+                pdfFiles.forEach(f => {
+                    html += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
+                });
+                document.getElementById(elementId).innerHTML = html + "</ul>";
+            } else {
+                document.getElementById(elementId).innerHTML = "<em>Aucun PDF dans ce dossier.</em>";
+            }
         }
     } catch (e) {
-        document.getElementById(elementId).innerHTML = "Dossier en attente de fichiers.";
+        document.getElementById(elementId).innerHTML = "<em>Dossier non encore publié.</em>";
     }
 }
 
-// Lancement automatique (Vérifiez bien que vos dossiers sur le PC sont dans "MathsSite")
+// Lancement automatique
 loadFiles("MP", "list-MP");
 loadFiles("MPSI", "list-MPSI");
 loadFiles("PC_PT", "list-PCPT");
@@ -125,3 +127,5 @@ loadFiles("Concours_nationaux_tunisiens", "list-Concours");
 </script>
 
 </body>
+</html>
+
