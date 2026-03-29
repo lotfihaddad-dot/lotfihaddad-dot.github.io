@@ -6,122 +6,27 @@
     <title>Mathématiques - Haddad Lotfi</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .construction {
-            background-color: #ffd966;
-            color: #1e3c72;
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        .header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #3a6ea5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .construction { background-color: #ffd966; color: #1e3c72; text-align: center; padding: 10px; margin-bottom: 20px; border-radius: 8px; font-weight: bold; }
+        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; background-color: #3a6ea5; display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
         .profile-info h1 { font-size: 28px; margin-bottom: 10px; }
         .profile-info h2 { font-size: 18px; font-weight: normal; margin-bottom: 8px; color: #ffd966; }
         .profile-info p { font-size: 14px; opacity: 0.9; }
-        .menu {
-            background: white;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .menu a {
-            color: #1e3c72;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-        .menu a:hover {
-            background: #1e3c72;
-            color: white;
-        }
-        .section {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .section h2 {
-            color: #1e3c72;
-            border-bottom: 2px solid #ffd966;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .submenu {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        .submenu a {
-            background: #f0f2f5;
-            color: #1e3c72;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-        .submenu a:hover {
-            background: #1e3c72;
-            color: white;
-        }
-        .legal {
-            background: #e8f0fe;
-            border-left: 4px solid #1e3c72;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #ddd;
-            margin-top: 20px;
-        }
-        @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; }
-            .submenu { justify-content: center; }
-        }
+        .menu { background: white; border-radius: 10px; padding: 15px 20px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .menu a { color: #1e3c72; text-decoration: none; font-weight: bold; padding: 8px 16px; border-radius: 25px; transition: all 0.3s; }
+        .menu a:hover { background: #1e3c72; color: white; }
+        .section { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .section h2 { color: #1e3c72; border-bottom: 2px solid #ffd966; padding-bottom: 10px; margin-bottom: 20px; }
+        .file-list { margin-top: 15px; padding: 10px; background: #fafafa; border-radius: 8px; }
+        .file-list ul { list-style: none; }
+        .file-list li { padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+        .file-list a { color: #1e3c72; text-decoration: none; font-weight: bold; }
+        .file-list a:hover { color: #d9534f; }
+        .legal { background: #e8f0fe; border-left: 4px solid #1e3c72; padding: 20px; margin: 30px 0; border-radius: 8px; }
+        footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 20px; }
+        @media (max-width: 768px) { .header { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -131,9 +36,10 @@
 </div>
 
 <div class="container">
-
     <div class="header">
-        <div class="profile-img">📐</div>
+        <div class="profile-img">
+            <img src="photo-profil.jpg" alt="📐" onerror="this.style.display='none'; this.parentElement.innerHTML='📐';" style="width:100%; height:100%; object-fit:cover;">
+        </div>
         <div class="profile-info">
             <h1>Haddad Lotfi</h1>
             <h2>Enseignant agrégé principal émérite en sciences mathématiques</h2>
@@ -143,89 +49,79 @@
     </div>
 
     <div class="menu">
-        <a href="index.html">Accueil</a>
-        <a href="MP/">MP</a>
-        <a href="MPSI/">MPSI</a>
-        <a href="PC_PT/">PC/PT</a>
-        <a href="PCSI_PTSI/">PCSI/PTSI</a>
-        <a href="Concours_nationaux_tunisiens/">Concours nationaux tunisiens</a>
-        <a href="liens.html">Liens</a>
+        <a href="#accueil">Accueil</a>
+        <a href="#mp">MP</a>
+        <a href="#mpsi">MPSI</a>
+        <a href="#pcpt">PC/PT</a>
+        <a href="#pcsi">PCSI/PTSI</a>
+        <a href="#concours">Concours</a>
     </div>
 
-    <!-- Section MP -->
-    <div class="section">
-        <h2>📘 MP (Mathématiques et Physique)</h2>
-        <div class="submenu">
-            <a href="MP/Cours/">Cours</a>
-            <a href="MP/Séries_d_exercices/">Séries d'exercices</a>
-            <a href="MP/Problèmes/">Problèmes</a>
-            <a href="MP/Devoirs/">Devoirs</a>
-            <a href="MP/Divers/">Divers</a>
-            <a href="MP/Archives/">Archives</a>
-        </div>
+    <div class="section" id="mp">
+        <h2>📘 MP (Deuxième année Mathématiques et Physique)</h2>
+        <div id="list-MP" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Section MPSI -->
-    <div class="section">
-        <h2>📗 MPSI (Mathématiques et Physique)</h2>
-        <div class="submenu">
-            <a href="MPSI/Cours/">Cours</a>
-            <a href="MPSI/Séries_d_exercices/">Séries d'exercices</a>
-            <a href="MPSI/Problèmes/">Problèmes</a>
-            <a href="MPSI/Devoirs/">Devoirs</a>
-            <a href="MPSI/Divers/">Divers</a>
-            <a href="MPSI/Archives/">Archives</a>
-        </div>
+    <div class="section" id="mpsi">
+        <h2>📗 MPSI (Première année Mathématiques et Physique)</h2>
+        <div id="list-MPSI" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Section PC/PT -->
-    <div class="section">
-        <h2>🔬⚙️ PC/PT (Physique et Chimie / Physique et Technologie)</h2>
-        <div class="submenu">
-            <a href="PC_PT/Cours/">Cours</a>
-            <a href="PC_PT/Séries_d_exercices/">Séries d'exercices</a>
-            <a href="PC_PT/Problèmes/">Problèmes</a>
-            <a href="PC_PT/Devoirs/">Devoirs</a>
-            <a href="PC_PT/Divers/">Divers</a>
-            <a href="PC_PT/Archives/">Archives</a>
-        </div>
+    <div class="section" id="pcpt">
+        <h2>🔬⚙️ PC/PT (Deuxièmes années Physique et Chimie / Physique et Technologie)</h2>
+        <div id="list-PCPT" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Section PCSI/PTSI -->
-    <div class="section">
+    <div class="section" id="pcsi">
         <h2>🧪🛠️ PCSI/PTSI (Premières années)</h2>
-        <div class="submenu">
-            <a href="PCSI_PTSI/Cours/">Cours</a>
-            <a href="PCSI_PTSI/Séries_d_exercices/">Séries d'exercices</a>
-            <a href="PCSI_PTSI/Problèmes/">Problèmes</a>
-            <a href="PCSI_PTSI/Devoirs/">Devoirs</a>
-            <a href="PCSI_PTSI/Divers/">Divers</a>
-            <a href="PCSI_PTSI/Archives/">Archives</a>
-        </div>
+        <div id="list-PCSI" class="file-list">Chargement des documents...</div>
     </div>
 
-    <!-- Section Concours nationaux tunisiens -->
-    <div class="section">
+    <div class="section" id="concours">
         <h2>📂 Concours nationaux tunisiens</h2>
-        <div class="submenu">
-            <a href="Concours_nationaux_tunisiens/Maths_1_MP/">Maths 1 MP</a>
-            <a href="Concours_nationaux_tunisiens/Maths_2_MP/">Maths 2 MP</a>
-            <a href="Concours_nationaux_tunisiens/Maths_PC_PT/">Maths PC/PT</a>
-        </div>
+        <div id="list-Concours" class="file-list">Chargement des documents...</div>
     </div>
 
-    <div class="legal">
+    <div class="legal" id="accueil">
         <h3>📢 À propos de ce site</h3>
         <p>Ce site propose essentiellement des documents mathématiques au format PDF, librement téléchargeables.</p>
         <p><strong>Les documents sont gratuits. Il est autorisé de les étudier, les imprimer et les diffuser gratuitement.</strong></p>
-        <p style="margin-top: 15px;">📌 Bonne visite !</p>
     </div>
 
     <footer>
-        <p>Haddad Lotfi - Institut Préparatoire aux Études d'Ingénieurs El Manar</p>
-        <p>Tous les contenus sont gratuits - Dernière mise à jour : Mars 2026</p>
+        <p>Haddad Lotfi - IPEI El Manar - Dernière mise à jour : Mars 2026</p>
     </footer>
 </div>
 
+<script>
+const GITHUB_PATH = "https://api.github.com";
+
+async function loadFiles(subFolder, elementId) {
+    try {
+        const response = await fetch(`${GITHUB_PATH}/${subFolder}`);
+        const files = await response.json();
+        let html = "<ul>";
+        if (files.length > 0) {
+            files.forEach(f => {
+                if(f.name.toLowerCase().endsWith('.pdf')) {
+                    html += `<li>📄 <a href="${f.path}" target="_blank">${f.name}</a></li>`;
+                }
+            });
+            document.getElementById(elementId).innerHTML = html + "</ul>";
+        } else {
+            document.getElementById(elementId).innerHTML = "Aucun document trouvé.";
+        }
+    } catch (e) {
+        document.getElementById(elementId).innerHTML = "Dossier en attente de fichiers.";
+    }
+}
+
+// Lancement automatique (Vérifiez bien que vos dossiers sur le PC sont dans "MathsSite")
+loadFiles("MP", "list-MP");
+loadFiles("MPSI", "list-MPSI");
+loadFiles("PC_PT", "list-PCPT");
+loadFiles("PCSI_PTSI", "list-PCSI");
+loadFiles("Concours_nationaux_tunisiens", "list-Concours");
+</script>
+
 </body>
-</html>
