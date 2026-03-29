@@ -242,6 +242,42 @@ listerMesFichiers();
         <p><strong>Les documents sont gratuits. Il est autorisé de les étudier, les imprimer et les diffuser gratuitement.</strong></p>
         <p style="margin-top: 15px;">📌 Bonne visite !</p>
     </div>
+<div id="contenu-maths">
+    <section><h2>📘 MP</h2><div id="liste-MP">Chargement...</div></section>
+    <section><h2>📗 MPSI</h2><div id="liste-MPSI">Chargement...</div></section>
+    <section><h2>🔬 PC/PT</h2><div id="liste-PCPT">Chargement...</div></section>
+    <section><h2>🧪 PCSI/PTSI</h2><div id="liste-PCSI">Chargement...</div></section>
+    <section><h2>📂 Concours Nationaux</h2><div id="liste-Concours">Chargement...</div></section>
+    <section><h2>🔗 Liens Utiles</h2><div id="liste-Liens">Chargement...</div></section>
+</div>
+
+<script>
+const USER = "lotfihaddad-dot";
+const REPO = "lotfihaddad-dot.github.io";
+
+async function afficherDossier(nomDossier, idElement) {
+    try {
+        const res = await fetch(`https://api.github.com{USER}/${REPO}/contents/${nomDossier}`);
+        const files = await res.json();
+        let html = "<ul>";
+        files.forEach(f => {
+            if(f.name.endsWith('.pdf')) {
+                // Affiche le nom EXACT de votre fichier sur votre PC
+                html += `<li><a href="${f.path}" target="_blank" style="color:#004a99; font-weight:bold;">${f.name}</a></li>`;
+            }
+        });
+        document.getElementById(idElement).innerHTML = html + "</ul>";
+    } catch (e) { document.getElementById(idElement).innerHTML = "Aucun fichier pour le moment."; }
+}
+
+// Lancement automatique pour les 6 sections
+afficherDossier("MP", "liste-MP");
+afficherDossier("MPSI", "liste-MPSI");
+afficherDossier("PCPT", "liste-PCPT");
+afficherDossier("PCSI", "liste-PCSI");
+afficherDossier("Concours", "liste-Concours");
+afficherDossier("Liens", "liste-Liens");
+</script>
 
     <footer>
         <p>Haddad Lotfi - Institut Préparatoire aux Études d'Ingénieurs El Manar</p>
