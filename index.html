@@ -99,72 +99,8 @@
         </div>
     </section>
 
-    <!-- SECTION MP -->
-    <section class="section" id="mp">
-        <h2>📘 MP (Deuxième année Mathématiques et Physique)</h2>
-        <div class="content">
-            <div class="subsection" data-path="MP/Cours"><h3>Cours</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MP/Devoirs"><h3>Devoirs</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MP/Problemes"><h3>Problèmes</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MP/Archives"><h3>Archives</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MP/Divers"><h3>Divers</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-        </div>
-    </section>
-
-    <!-- SECTION MPSI -->
-    <section class="section" id="mpsi">
-        <h2>📗 MPSI (Première année Mathématiques et Physique)</h2>
-        <div class="content">
-            <div class="subsection" data-path="MPSI/Cours"><h3>Cours</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MPSI/Devoirs"><h3>Devoirs</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MPSI/Problemes"><h3>Problèmes</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MPSI/Archives"><h3>Archives</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="MPSI/Divers"><h3>Divers</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-        </div>
-    </section>
-
-    <!-- SECTION PC/PT -->
-    <section class="section" id="pcpt">
-        <h2>📕 PC / PT (Deuxièmes années Physique-chimie et Préparatoire Technologie)</h2>
-        <div class="content">
-            <div class="subsection" data-path="PC_PT/Cours"><h3>Cours</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PC_PT/Devoirs"><h3>Devoirs</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PC_PT/Problemes"><h3>Problèmes</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PC_PT/Archives"><h3>Archives</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PC_PT/Divers"><h3>Divers</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-        </div>
-    </section>
-
-    <!-- SECTION PCSI/PTSI -->
-    <section class="section" id="pcsi">
-        <h2>🧪 PCSI / PTSI (Premières années Physique-chimie et Préparatoire Technologie)</h2>
-        <div class="content">
-            <div class="subsection" data-path="PCSI_PTSI/Cours"><h3>Cours</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PCSI_PTSI/Devoirs"><h3>Devoirs</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PCSI_PTSI/Problemes"><h3>Problèmes</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PCSI_PTSI/Archives"><h3>Archives</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="PCSI_PTSI/Divers"><h3>Divers</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-        </div>
-    </section>
-
-    <!-- SECTION CONCOURS NATIONAUX -->
-    <section class="section" id="concours">
-        <h2>📂 Concours Nationaux tunisiens</h2>
-        <div class="content">
-            <div class="subsection" data-path="Concours/Maths1_MP"><h3>Concours Maths 1 MP</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="Concours/Maths2_MP"><h3>Concours Maths 2 MP</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-            <div class="subsection" data-path="Concours/PC_PT"><h3>Concours PC/PT</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-        </div>
-    </section>
-
-    <!-- SECTION LIENS ET CONTACT -->
-    <section class="section" id="liens">
-        <h2>🔗 Liens et Contact</h2>
-        <div class="content">
-            <p>📧 Email : <a href="mailto:votre-email@exemple.com" class="email-link">votre-email@exemple.com</a></p>
-            <p style="margin-top: 10px;">💡 Pour toute question ou remarque, n'hésitez pas à me contacter.</p>
-        </div>
-    </section>
+    <!-- Les sections MP, MPSI, etc. seront générées dynamiquement -->
+    <div id="dynamic-sections"></div>
 
     <div class="legal">
         <h3>📢 À propos de ce site</h3>
@@ -182,7 +118,17 @@ const USER = "lotfihaddad-dot";
 const REPO = "lotfihaddad-dot.github.io";
 const API = `https://api.github.com/repos/${USER}/${REPO}/contents`;
 
-async function renderFolderContent(container, path) {
+// Configuration des sections et sous-sections
+const sectionsConfig = [
+    { id: "mp", title: "📘 MP (Deuxième année Mathématiques et Physique)", path: "MP", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
+    { id: "mpsi", title: "📗 MPSI (Première année Mathématiques et Physique)", path: "MPSI", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
+    { id: "pcpt", title: "📕 PC / PT (Deuxièmes années Physique-chimie et Préparatoire Technologie)", path: "PC_PT", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
+    { id: "pcsi", title: "🧪 PCSI / PTSI (Premières années Physique-chimie et Préparatoire Technologie)", path: "PCSI_PTSI", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
+    { id: "concours", title: "📂 Concours Nationaux tunisiens", path: "Concours", subs: ["Maths1_MP", "Maths2_MP", "PC_PT"] }
+];
+
+// Fonction pour afficher le contenu d'un dossier avec gestion des sous-dossiers
+async function renderFolderContent(container, path, level = 0) {
     try {
         const res = await fetch(`${API}/${path}`);
         const items = await res.json();
@@ -193,21 +139,23 @@ async function renderFolderContent(container, path) {
         }
         
         const folders = items.filter(i => i.type === "dir").sort((a,b) => a.name.localeCompare(b.name));
-        const files = items.filter(i => i.type === "file" && i.name.toLowerCase().endsWith('.pdf')).sort((a,b) => a.name.localeCompare(b.name));
+        const files = items.filter(i => i.type === "file" && i.name.endsWith('.pdf')).sort((a,b) => a.name.localeCompare(b.name));
         
         let html = "";
         
+        // Afficher les sous-dossiers
         for (const folder of folders) {
             html += `
                 <div class="folder-item">
                     <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${folder.name}</div>
-                    <div class="folder-content">
-                        <div class="file-list" data-path="${path}/${folder.name}">Chargement...</div>
+                    <div class="folder-content" id="folder-${path.replace(/\//g, '-')}-${folder.name}">
+                        <div class="file-list" id="content-${path.replace(/\//g, '-')}-${folder.name}">Chargement...</div>
                     </div>
                 </div>
             `;
         }
         
+        // Afficher les fichiers PDF directement dans ce dossier
         if (files.length > 0) {
             let fileHtml = "<ul>";
             for (const f of files) {
@@ -219,10 +167,11 @@ async function renderFolderContent(container, path) {
         
         container.innerHTML = html;
         
+        // Charger le contenu de chaque sous-dossier
         for (const folder of folders) {
-            const subContainer = container.querySelector(`.file-list[data-path="${path}/${folder.name}"]`);
+            const subContainer = document.getElementById(`content-${path.replace(/\//g, '-')}-${folder.name}`);
             if (subContainer) {
-                await renderFolderContent(subContainer, `${path}/${folder.name}`);
+                await renderFolderContent(subContainer, `${path}/${folder.name}`, level + 1);
             }
         }
         
@@ -235,41 +184,68 @@ async function renderFolderContent(container, path) {
     }
 }
 
-function initAccordion() {
-    document.querySelectorAll('.section').forEach(section => {
-        const h2 = section.querySelector('h2');
-        if (h2 && section.id !== 'accueil') {
-            h2.addEventListener('click', () => {
-                section.classList.toggle('open');
-            });
-        }
+// Fonction pour créer une sous-section (Cours, Devoirs, etc.)
+function createSubsection(title, path) {
+    const subsectionDiv = document.createElement('div');
+    subsectionDiv.className = 'subsection';
+    subsectionDiv.innerHTML = `
+        <h3>${title}</h3>
+        <div class="subcontent">
+            <div class="folder-list" id="content-${path.replace(/\//g, '-')}">Chargement...</div>
+        </div>
+    `;
+    
+    const h3 = subsectionDiv.querySelector('h3');
+    h3.addEventListener('click', () => {
+        subsectionDiv.classList.toggle('open');
     });
     
-    document.querySelectorAll('.subsection').forEach(sub => {
-        const h3 = sub.querySelector('h3');
-        h3.addEventListener('click', () => {
-            sub.classList.toggle('open');
+    // Charger le contenu
+    renderFolderContent(subsectionDiv.querySelector('.folder-list'), path);
+    
+    return subsectionDiv;
+}
+
+// Créer toutes les sections
+function buildSections() {
+    const container = document.getElementById('dynamic-sections');
+    container.innerHTML = '';
+    
+    for (const section of sectionsConfig) {
+        const sectionDiv = document.createElement('section');
+        sectionDiv.className = 'section';
+        sectionDiv.id = section.id;
+        
+        const h2 = document.createElement('h2');
+        h2.textContent = section.title;
+        sectionDiv.appendChild(h2);
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'content';
+        
+        for (const sub of section.subs) {
+            const subPath = `${section.path}/${sub}`;
+            const subTitle = sub.replace('_', ' ').replace('Maths1', 'Maths 1').replace('Maths2', 'Maths 2').replace('PC_PT', 'PC/PT');
+            contentDiv.appendChild(createSubsection(subTitle, subPath));
+        }
+        
+        sectionDiv.appendChild(contentDiv);
+        container.appendChild(sectionDiv);
+        
+        // Gestion de l'accordéon pour la section
+        h2.addEventListener('click', () => {
+            sectionDiv.classList.toggle('open');
         });
-    });
+    }
 }
 
-function loadAll() {
-    document.querySelectorAll('.subsection').forEach(sub => {
-        const path = sub.getAttribute('data-path');
-        if (path) {
-            const container = sub.querySelector('.folder-list');
-            if (container) {
-                renderFolderContent(container, path);
-            }
-        }
-    });
-}
-
+// Initialisation
 window.onload = () => {
-    initAccordion();
-    loadAll();
+    buildSections();
     
-    document.querySelectorAll('.menu a').forEach(link => {
+    // Gestion du défilement depuis le menu
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const targetId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
             const targetSection = document.getElementById(targetId);
