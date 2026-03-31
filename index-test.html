@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathématiques - Haddad Lotfi</title>
+    <title>Mathématiques - Haddad Lotfi (Test)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
@@ -21,19 +21,10 @@
         .section .content { display: none; margin-top: 20px; }
         .section.open .content { display: block; }
         .subsection { margin-top: 20px; padding-left: 15px; border-left: 3px solid #eee; }
-        .subsection h3 { color: #2a5298; margin-bottom: 10px; font-size: 18px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; }
-        .subsection h3::after { content: "▼"; font-size: 12px; transition: transform 0.3s; color: #888; }
-        .subsection.open h3::after { transform: rotate(180deg); }
-        .subsection .subcontent { display: none; margin-top: 10px; margin-left: 15px; }
-        .subsection.open .subcontent { display: block; }
-        .folder-list, .file-list { background: #fafafa; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
-        .folder-item { margin: 8px 0; }
-        .folder-title { cursor: pointer; font-weight: bold; color: #1e3c72; padding: 5px; background: #e8f0fe; border-radius: 5px; display: inline-block; margin-bottom: 5px; }
-        .folder-title::before { content: "📁 "; }
-        .folder-content { margin-left: 20px; display: none; }
-        .folder-content.open { display: block; }
+        .subsection h3 { color: #2a5298; margin-bottom: 10px; font-size: 18px; }
+        .file-list { background: #fafafa; border-radius: 8px; padding: 10px; margin-bottom: 15px; }
         .file-list ul { list-style: none; }
-        .file-list li { padding: 5px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        .file-list li { padding: 8px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
         .file-list a { color: #2a5298; text-decoration: none; font-weight: 600; }
         .legal { background: #e8f0fe; border-left: 5px solid #1e3c72; padding: 25px; border-radius: 8px; margin-top: 20px; }
         .status-list { list-style: none; margin-top: 10px; }
@@ -44,6 +35,7 @@
         .livres-list li::before { content: "📚"; position: absolute; left: -5px; }
         .citation { font-style: italic; background: #f9f3e0; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #ffd966; }
         .email-link { color: #2a5298; text-decoration: none; font-weight: bold; }
+        .email-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -68,13 +60,15 @@
         <a onclick="document.getElementById('liens').scrollIntoView({behavior:'smooth'}); return false;">Liens & Contact</a>
     </nav>
 
-    <!-- SECTION ACCUEIL -->
+    <!-- SECTION ACCUEIL (ouverte par défaut) -->
     <section class="section open" id="accueil">
         <h2>🏠 Accueil</h2>
         <div class="content">
             <p><strong>Bienvenue sur cet espace pédagogique.</strong> Vous y trouverez l'ensemble de mes ressources mathématiques.</p>
+            
             <p>Depuis plusieurs années, je travaille jour et nuit pour écrire des livres de Mathématiques pour les classes préparatoires, toutes filières, première et deuxième années.<br>
             Aujourd'hui, j'ai <strong>11 livres</strong> qui attendent le feu vert pour la publication :</p>
+            
             <ul class="livres-list">
                 <li><strong>Mathématiques 1 MP</strong> - Cours Complet, Exercices et Annales Corrigées (2ème année Maths-Physique)</li>
                 <li><strong>Mathématiques 2 MP</strong> - Cours Complet, Exercices et Annales Corrigées (2ème année Maths-Physique)</li>
@@ -83,24 +77,93 @@
                 <li><strong>CLASSES PRÉPARATOIRES - Filières PC & PT - Fondamentaux des Mathématiques (deuxième année)</strong></li>
                 <li><strong>CLASSES PRÉPARATOIRES - Filières PC & PT - Fondamentaux des Mathématiques (première année) Tome 1</strong></li>
                 <li><strong>CLASSES PRÉPARATOIRES - Filières PC & PT - Fondamentaux des Mathématiques (première année) Tome 2</strong></li>
-                <li><strong>OBJECTIF CONCOURS MP - MATHÉMATIQUES</strong> - La Méthode par l'Exercice</li>
-                <li><strong>Annales MP Augmentées</strong> - 30 Sujets de Concours avec Analyses Détaillées</li>
+                <li><strong>OBJECTIF CONCOURS MP - MATHÉMATIQUES</strong> - La Méthode par l'Exercice (avec résumés de cours, savoir-faire clés, quiz et exercices corrigés progressifs)</li>
+                <li><strong>Annales MP Augmentées</strong> - 30 Sujets de Concours de Mathématiques avec Analyses Détaillées et Clés de Résolution</li>
                 <li><strong>32 ANS DE CONCOURS NATIONAUX TUNISIENS - MATHÉMATIQUES 2 - FILIÈRE MP</strong></li>
                 <li><strong>32 ANS DE CONCOURS NATIONAUX TUNISIENS - MATHÉMATIQUES 1 - FILIÈRE MP</strong></li>
             </ul>
+            
             <p><strong>Ensemble, ces livres totalisent près de 6600 pages de Mathématiques.</strong></p>
+            
             <div class="citation">
                 <p>❝ Bon, après cette liste des livres, une personne pourrait se demander : <em>« À quoi sert ce site ? N'est-il pas en contradiction avec vos livres ? »</em></p>
                 <p>Je réponds : non, car un livre ne peut pas dépasser 800 pages au maximum. Que faire alors avec des milliers et des milliers de pages de mathématiques ? <strong>Ce site est donc en harmonie avec les livres :</strong> il complète ces livres avec d'autres fichiers PDF originaux. Chaque visiteur a le choix de ce qu'il veut lire. ❞</p>
             </div>
+            
             <p>Fruit d'une longue expérience d'enseignement, ce site vise à enrichir les étudiants et enseignants de classes préparatoires et premier cycle universitaire, et à les aider à préparer efficacement les concours nationaux d'entrée aux écoles d'ingénieurs, ainsi qu'à différents concours français.</p>
+            
             <p><em>Je remercie par avance les visiteurs de ce site qui voudront bien me faire part de leurs remarques ou me signaler d'éventuelles coquilles.</em></p>
+            
             <p><strong>Ceci n'est que le début. Plusieurs bonnes surprises vous attendent !</strong></p>
         </div>
     </section>
 
-    <!-- Les sections MP, MPSI, etc. seront générées dynamiquement -->
-    <div id="dynamic-sections"></div>
+    <!-- SECTION MP -->
+    <section class="section" id="mp">
+        <h2>📘 MP (Deuxième année Mathématiques et Physique)</h2>
+        <div class="content">
+            <div class="subsection"><h3>Cours</h3><div id="MP-Cours" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Devoirs</h3><div id="MP-Devoirs" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Problèmes</h3><div id="MP-Problemes" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Archives</h3><div id="MP-Archives" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Divers</h3><div id="MP-Divers" class="file-list">Chargement...</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION MPSI -->
+    <section class="section" id="mpsi">
+        <h2>📗 MPSI (Première année Mathématiques et Physique)</h2>
+        <div class="content">
+            <div class="subsection"><h3>Cours</h3><div id="MPSI-Cours" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Devoirs</h3><div id="MPSI-Devoirs" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Problèmes</h3><div id="MPSI-Problemes" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Archives</h3><div id="MPSI-Archives" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Divers</h3><div id="MPSI-Divers" class="file-list">Chargement...</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION PC/PT -->
+    <section class="section" id="pcpt">
+        <h2>📕 PC / PT (Deuxièmes années Physique-chimie et Préparatoire Technologie)</h2>
+        <div class="content">
+            <div class="subsection"><h3>Cours</h3><div id="PCPT-Cours" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Devoirs</h3><div id="PCPT-Devoirs" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Problèmes</h3><div id="PCPT-Problemes" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Archives</h3><div id="PCPT-Archives" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Divers</h3><div id="PCPT-Divers" class="file-list">Chargement...</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION PCSI/PTSI -->
+    <section class="section" id="pcsi">
+        <h2>🧪 PCSI / PTSI (Premières années Physique-chimie et Préparatoire Technologie)</h2>
+        <div class="content">
+            <div class="subsection"><h3>Cours</h3><div id="PCSI-Cours" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Devoirs</h3><div id="PCSI-Devoirs" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Problèmes</h3><div id="PCSI-Problemes" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Archives</h3><div id="PCSI-Archives" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Divers</h3><div id="PCSI-Divers" class="file-list">Chargement...</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION CONCOURS NATIONAUX -->
+    <section class="section" id="concours">
+        <h2>📂 Concours Nationaux tunisiens</h2>
+        <div class="content">
+            <div class="subsection"><h3>Concours Maths 1 MP</h3><div id="Concours-Maths1" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Concours Maths 2 MP</h3><div id="Concours-Maths2" class="file-list">Chargement...</div></div>
+            <div class="subsection"><h3>Concours PC/PT</h3><div id="Concours-PCPT" class="file-list">Chargement...</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION LIENS ET CONTACT -->
+    <section class="section" id="liens">
+        <h2>🔗 Liens et Contact</h2>
+        <div class="content">
+            <p>📧 Email : <a href="mailto:votre-email@exemple.com" class="email-link">votre-email@exemple.com</a></p>
+            <p style="margin-top: 10px;">💡 Pour toute question ou remarque, n'hésitez pas à me contacter.</p>
+        </div>
+    </section>
 
     <div class="legal">
         <h3>📢 À propos de ce site</h3>
@@ -118,130 +181,48 @@ const USER = "lotfihaddad-dot";
 const REPO = "lotfihaddad-dot.github.io";
 const API = `https://api.github.com/repos/${USER}/${REPO}/contents`;
 
-// Configuration des sections et sous-sections
-const sectionsConfig = [
-    { id: "mp", title: "📘 MP (Deuxième année Mathématiques et Physique)", path: "MP", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
-    { id: "mpsi", title: "📗 MPSI (Première année Mathématiques et Physique)", path: "MPSI", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
-    { id: "pcpt", title: "📕 PC / PT (Deuxièmes années Physique-chimie et Préparatoire Technologie)", path: "PC_PT", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
-    { id: "pcsi", title: "🧪 PCSI / PTSI (Premières années Physique-chimie et Préparatoire Technologie)", path: "PCSI_PTSI", subs: ["Cours", "Devoirs", "Problemes", "Archives", "Divers"] },
-    { id: "concours", title: "📂 Concours Nationaux tunisiens", path: "Concours", subs: ["Maths1_MP", "Maths2_MP", "PC_PT"] }
-];
-
-// Fonction pour afficher le contenu d'un dossier avec gestion des sous-dossiers
-async function renderFolderContent(container, path, level = 0) {
+async function load(path, id) {
     try {
         const res = await fetch(`${API}/${path}`);
-        const items = await res.json();
-        
-        if (!Array.isArray(items)) {
-            container.innerHTML = "<em>Aucun document.</em>";
-            return;
+        const files = await res.json();
+        let h = "<ul>";
+        if (files && Array.isArray(files)) {
+            files.filter(f => f.name && f.name.endsWith('.pdf')).forEach(f => {
+                h += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
+            });
         }
-        
-        const folders = items.filter(i => i.type === "dir").sort((a,b) => a.name.localeCompare(b.name));
-        const files = items.filter(i => i.type === "file" && i.name.endsWith('.pdf')).sort((a,b) => a.name.localeCompare(b.name));
-        
-        let html = "";
-        
-        // Afficher les sous-dossiers
-        for (const folder of folders) {
-            html += `
-                <div class="folder-item">
-                    <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${folder.name}</div>
-                    <div class="folder-content" id="folder-${path.replace(/\//g, '-')}-${folder.name}">
-                        <div class="file-list" id="content-${path.replace(/\//g, '-')}-${folder.name}">Chargement...</div>
-                    </div>
-                </div>
-            `;
+        document.getElementById(id).innerHTML = h + "</ul>";
+        if (document.getElementById(id).innerHTML === "<ul></ul>") {
+            document.getElementById(id).innerHTML = "<em>Aucun document pour le moment.</em>";
         }
-        
-        // Afficher les fichiers PDF directement dans ce dossier
-        if (files.length > 0) {
-            let fileHtml = "<ul>";
-            for (const f of files) {
-                fileHtml += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
-            }
-            fileHtml += "</ul>";
-            html += `<div class="file-list">${fileHtml}</div>`;
-        }
-        
-        container.innerHTML = html;
-        
-        // Charger le contenu de chaque sous-dossier
-        for (const folder of folders) {
-            const subContainer = document.getElementById(`content-${path.replace(/\//g, '-')}-${folder.name}`);
-            if (subContainer) {
-                await renderFolderContent(subContainer, `${path}/${folder.name}`, level + 1);
-            }
-        }
-        
-        if (folders.length === 0 && files.length === 0) {
-            container.innerHTML = "<em>Aucun document.</em>";
-        }
-        
-    } catch (error) {
-        container.innerHTML = "<em>Dossier non trouvé ou vide.</em>";
+    } catch {
+        document.getElementById(id).innerHTML = "<em>Dossier non trouvé ou vide.</em>";
     }
 }
 
-// Fonction pour créer une sous-section (Cours, Devoirs, etc.)
-function createSubsection(title, path) {
-    const subsectionDiv = document.createElement('div');
-    subsectionDiv.className = 'subsection';
-    subsectionDiv.innerHTML = `
-        <h3>${title}</h3>
-        <div class="subcontent">
-            <div class="folder-list" id="content-${path.replace(/\//g, '-')}">Chargement...</div>
-        </div>
-    `;
-    
-    const h3 = subsectionDiv.querySelector('h3');
-    h3.addEventListener('click', () => {
-        subsectionDiv.classList.toggle('open');
+// Fonction pour l'accordéon
+function initAccordion() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        const h2 = section.querySelector('h2');
+        if (h2 && section.id !== 'accueil') {
+            h2.addEventListener('click', () => {
+                section.classList.toggle('open');
+            });
+        }
     });
-    
-    // Charger le contenu
-    renderFolderContent(subsectionDiv.querySelector('.folder-list'), path);
-    
-    return subsectionDiv;
 }
 
-// Créer toutes les sections
-function buildSections() {
-    const container = document.getElementById('dynamic-sections');
-    container.innerHTML = '';
-    
-    for (const section of sectionsConfig) {
-        const sectionDiv = document.createElement('section');
-        sectionDiv.className = 'section';
-        sectionDiv.id = section.id;
-        
-        const h2 = document.createElement('h2');
-        h2.textContent = section.title;
-        sectionDiv.appendChild(h2);
-        
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'content';
-        
-        for (const sub of section.subs) {
-            const subPath = `${section.path}/${sub}`;
-            const subTitle = sub.replace('_', ' ').replace('Maths1', 'Maths 1').replace('Maths2', 'Maths 2').replace('PC_PT', 'PC/PT');
-            contentDiv.appendChild(createSubsection(subTitle, subPath));
-        }
-        
-        sectionDiv.appendChild(contentDiv);
-        container.appendChild(sectionDiv);
-        
-        // Gestion de l'accordéon pour la section
-        h2.addEventListener('click', () => {
-            sectionDiv.classList.toggle('open');
-        });
-    }
-}
-
-// Initialisation
 window.onload = () => {
-    buildSections();
+    // Chargement des fichiers
+    load("MP/Cours", "MP-Cours"); load("MP/Devoirs", "MP-Devoirs"); load("MP/Problemes", "MP-Problemes"); load("MP/Archives", "MP-Archives"); load("MP/Divers", "MP-Divers");
+    load("MPSI/Cours", "MPSI-Cours"); load("MPSI/Devoirs", "MPSI-Devoirs"); load("MPSI/Problemes", "MPSI-Problemes"); load("MPSI/Archives", "MPSI-Archives"); load("MPSI/Divers", "MPSI-Divers");
+    load("PC_PT/Cours", "PCPT-Cours"); load("PC_PT/Devoirs", "PCPT-Devoirs"); load("PC_PT/Problemes", "PCPT-Problemes"); load("PC_PT/Archives", "PCPT-Archives"); load("PC_PT/Divers", "PCPT-Divers");
+    load("PCSI_PTSI/Cours", "PCSI-Cours"); load("PCSI_PTSI/Devoirs", "PCSI-Devoirs"); load("PCSI_PTSI/Problemes", "PCSI-Problemes"); load("PCSI_PTSI/Archives", "PCSI-Archives"); load("PCSI_PTSI/Divers", "PCSI-Divers");
+    load("Concours/Maths1_MP", "Concours-Maths1"); load("Concours/Maths2_MP", "Concours-Maths2"); load("Concours/PC_PT", "Concours-PCPT");
+    
+    // Initialiser l'accordéon
+    initAccordion();
     
     // Gestion du défilement depuis le menu
     const menuLinks = document.querySelectorAll('.menu a');
