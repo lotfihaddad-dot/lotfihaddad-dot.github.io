@@ -213,18 +213,31 @@
     </div>
 </div>
 
-<script>
 const USER = "lotfihaddad-dot";
 const REPO = "lotfihaddad-dot.github.io";
 const API = `https://api.github.com/repos/${USER}/${REPO}/contents`;
 
+function encodePath(path) {
+    return path.split('/').map(encodeURIComponent).join('/');
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
 async function renderFolderContent(container, path) {
     try {
-        const res = await fetch(`${API}/${path}`);
+        const encodedPath = encodePath(path);
+        const res = await fetch(`${API}/${encodedPath}`);
         const items = await res.json();
         
         if (!Array.isArray(items)) {
-            container.innerHTML = "<em>Aucun document.</em>";
+            container.innerHTML = "<em>Dossier introuvable ou vide.</em>";
             return;
         }
         
@@ -234,11 +247,13 @@ async function renderFolderContent(container, path) {
         let html = "";
         
         for (const folder of folders) {
+            const safeFolderName = escapeHtml(folder.name);
+            const subPath = `${path}/${folder.name}`;
             html += `
                 <div class="folder-item">
-                    <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${folder.name}</div>
+                    <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${safeFolderName}</div>
                     <div class="folder-content">
-                        <div class="file-list" data-path="${path}/${folder.name}">Chargement...</div>
+                        <div class="file-list" data-path="${subPath}">Chargement...</div>
                     </div>
                 </div>
             `;
@@ -247,7 +262,7 @@ async function renderFolderContent(container, path) {
         if (files.length > 0) {
             let fileHtml = "<ul>";
             for (const f of files) {
-                fileHtml += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
+                fileHtml += `<li>📄 <a href="${f.download_url}" target="_blank">${escapeHtml(f.name)}</a></li>`;
             }
             fileHtml += "</ul>";
             html += `<div class="file-list">${fileHtml}</div>`;
@@ -267,7 +282,8 @@ async function renderFolderContent(container, path) {
         }
         
     } catch (error) {
-        container.innerHTML = "<em>Dossier non trouvé ou vide.</em>";
+        console.error("Erreur chargement :", error);
+        container.innerHTML = "<em>Erreur de chargement.</em>";
     }
 }
 
@@ -283,9 +299,11 @@ function initAccordion() {
     
     document.querySelectorAll('.subsection').forEach(sub => {
         const h3 = sub.querySelector('h3');
-        h3.addEventListener('click', () => {
-            sub.classList.toggle('open');
-        });
+        if (h3) {
+            h3.addEventListener('click', () => {
+                sub.classList.toggle('open');
+            });
+        }
     });
 }
 
@@ -321,6 +339,7 @@ window.onload = () => {
         });
     });
 };
-</script>
+    </script>
+
 </body>
-</html>
+</html>            
