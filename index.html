@@ -201,14 +201,13 @@
         </div>
     </section>
 
-   <!-- SECTION ACTUALITÉS (TOUT EN BAS) -->
-    <section class="section open" id="actualites">
-        <h2>📰 Actualités</h2>
-        <div class="content">
-            <div class="folder-list" data-path="Actualites">Chargement...</div>
-        </div>
-    </section>
-
+   <!-- SECTION ACTUALITÉS -->
+<section class="section open" id="actualites">
+    <h2>📰 Actualités</h2>
+    <div class="content">
+        <div class="folder-list" data-path="Actualites">Chargement...</div>
+    </div>
+</section>
     <div class="legal">
         <h3>📢 À propos de ce site</h3>
         <p>Les documents sont gratuits. Il est autorisé de :</p>
@@ -312,24 +311,7 @@ window.onload = () => {
     initAccordion();
     loadAll();
     
-    document.querySelectorAll('.menu a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const onclickAttr = link.getAttribute('onclick');
-            if (onclickAttr) {
-                const match = onclickAttr.match(/'([^']+)'/);
-                if (match) {
-                    const targetId = match[1];
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection && targetSection.id !== 'accueil') {
-                        targetSection.classList.add('open');
-                    }
-                }
-            }
-        });
-    });
-};
-</script>
-    });
+       });
 };
 </script>
 
@@ -355,7 +337,8 @@ window.onload = () => {
     </script>
 </div>
 
-
-
 </body>
 </html>
+
+
+
