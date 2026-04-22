@@ -235,52 +235,79 @@ fetch('https://api.github.com/repos/lotfihaddad-dot/lotfihaddad-dot.github.io/co
 <script>
 const USER = "lotfihaddad-dot";
 const REPO = "lotfihaddad-dot.github.io";
-const API = `https://raw.githubusercontent.com/${USER}/${REPO}/main`;
+// Utilisation de l'API REST de GitHub pour lister les dossiers
+const API_BASE = `https://github.com{USER}/${REPO}/contents`;
 
 async function renderFolderContent(container, path) {
     try {
-        const res = await fetch(`${API}/${path}`);
+        const res = await fetch(`${API_BASE}/${path}`);
+        
+        if (!res.ok) throw new Error("Erreur réseau ou dossier introuvable");
+        
         const items = await res.json();
         
         if (!Array.isArray(items)) {
             container.innerHTML = "<em>Aucun document.</em>";
             return;
         }
-        
+
+        // Tri des dossiers et des fichiers PDF
         const folders = items.filter(i => i.type === "dir").sort((a,b) => a.name.localeCompare(b.name));
         const files = items.filter(i => i.type === "file" && i.name.toLowerCase().endsWith('.pdf')).sort((a,b) => a.name.localeCompare(b.name));
         
         let html = "";
         
-        for (const folder of folders) {
+        // Affichage des dossiers
+        folders.forEach(folder => {
             html += `
                 <div class="folder-item">
-                    <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${folder.name}</div>
+                    <div class="folder-title" onclick="handleFolderClick(this, '${path}/${folder.name}')">
+                        📁 ${folder.name}
+                    </div>
                     <div class="folder-content">
-                        <div class="file-list" data-path="${path}/${folder.name}">Chargement...</div>
+                        <div class="file-list">Chargement...</div>
                     </div>
                 </div>
             `;
-        }
+        });
         
+        // Affichage des fichiers
         if (files.length > 0) {
-            let fileHtml = "<ul>";
-            for (const f of files) {
-                fileHtml += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
-            }
-            fileHtml += "</ul>";
-            html += `<div class="file-list">${fileHtml}</div>`;
+            html += '<ul class="file-list-ul">';
+            files.forEach(f => {
+                html += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
+            });
+            html += '</ul>';
         }
         
-        container.innerHTML = html;
+        container.innerHTML = html || "<em>Dossier vide.</em>";
         
-        for (const folder of folders) {
-            const subContainer = container.querySelector(`.file-list[data-path="${path}/${folder.name}"]`);
-            if (subContainer) {
-                await renderFolderContent(subContainer, `${path}/${folder.name}`);
-            }
-        }
-        
+    } catch (error) {
+        console.error("Erreur GitHub API:", error);
+        container.innerHTML = "<em style='color:red;'>Erreur de chargement.</em>";
+    }
+}
+
+// Fonction pour gérer le clic : on ne charge le contenu que si nécessaire (Lazy Loading)
+async function handleFolderClick(element, fullPath) {
+    const contentDiv = element.nextElementSibling;
+    contentDiv.classList.toggle('open'); // Ouvre ou ferme le dossier visuellement
+    
+    const listContainer = contentDiv.querySelector('.file-list');
+    
+    // On ne télécharge les données que la première fois pour économiser l'API
+    if (listContainer && listContainer.innerText === "Chargement...") {
+        await renderFolderContent(listContainer, fullPath);
+    }
+}
+
+// Initialisation au chargement de la page pour les sections principales
+document.addEventListener("DOMContentLoaded", () => {
+    // Exemple pour lancer le chargement auto de la section Actualités
+    const actuContainer = document.getElementById('test-actu');
+    if (actuContainer) renderFolderContent(actuContainer, 'Actualites');
+});
+
         if (folders.length === 0 && files.length === 0) {
             container.innerHTML = "<em>Aucun document.</em>";
         }
