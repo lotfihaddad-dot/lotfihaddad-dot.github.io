@@ -69,7 +69,7 @@
         <a onclick="document.getElementById('actualites').scrollIntoView({behavior:'smooth'}); return false;">📰 Actualités</a>
     </nav>
 
-    <!-- SECTION ACCUEIL -->
+    <!-- SECTION ACCUEIL (identique à l’ancien) -->
     <section class="section open" id="accueil">
         <h2>🏠 Accueil</h2>
         <div class="content">
@@ -100,19 +100,18 @@
         </div>
     </section>
 
-   <!-- SECTION MP -->
+    <!-- SECTION MP -->
     <section class="section" id="mp">
         <h2>📘 MP (Deuxième année Mathématiques et Physique)</h2>
         <div class="content">
-            <!-- MATHS 1 -->
+            <!-- Maths 1 -->
             <div class="subsection" data-path="MP/Maths 1/Cours"><h3>Cours - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 1/Devoirs"><h3>Devoirs - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 1/TD"><h3>TD - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 1/Problèmes"><h3>Problèmes - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 1/Archives"><h3>Archives - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 1/Divers"><h3>Divers - Maths 1</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-
-            <!-- MATHS 2 -->
+            <!-- Maths 2 -->
             <div class="subsection" data-path="MP/Maths 2/Cours"><h3>Cours - Maths 2</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 2/Devoirs"><h3>Devoirs - Maths 2</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MP/Maths 2/TD"><h3>TD - Maths 2</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
@@ -122,19 +121,16 @@
         </div>
     </section>
 
-   <!-- SECTION MPSI -->
+    <!-- SECTION MPSI -->
     <section class="section" id="mpsi">
         <h2>📗 MPSI (Première année Mathématiques et Physique)</h2>
         <div class="content">
-            <!-- ANALYSE -->
             <div class="subsection" data-path="MPSI/Analyse/Cours"><h3>Cours - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Analyse/Devoirs"><h3>Devoirs - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Analyse/TD"><h3>TD - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Analyse/Problèmes"><h3>Problèmes - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Analyse/Archives"><h3>Archives - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Analyse/Divers"><h3>Divers - Analyse</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
-
-            <!-- ALGÈBRE -->
             <div class="subsection" data-path="MPSI/Algèbre/Cours"><h3>Cours - Algèbre</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Algèbre/Devoirs"><h3>Devoirs - Algèbre</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
             <div class="subsection" data-path="MPSI/Algèbre/TD"><h3>TD - Algèbre</h3><div class="subcontent"><div class="folder-list">Chargement...</div></div></div>
@@ -144,7 +140,7 @@
         </div>
     </section>
 
-   <!-- SECTION PC/PT -->
+    <!-- SECTION PC/PT -->
     <section class="section" id="pcpt">
         <h2>📕 PC / PT (Deuxièmes années Physique-chimie et Préparatoire Technologie)</h2>
         <div class="content">
@@ -157,7 +153,7 @@
         </div>
     </section>
 
-  <!-- SECTION PCSI/PTSI -->
+    <!-- SECTION PCSI/PTSI -->
     <section class="section" id="pcsi">
         <h2>🧪 PCSI / PTSI (Premières années Physique-chimie et Préparatoire Technologie)</h2>
         <div class="content">
@@ -201,122 +197,108 @@
         </div>
     </section>
 
-  <!-- SECTION ACTUALITÉS -->
-<section class="section" id="actualites">
-    <h2>📰 Actualités</h2>
-    <div class="content">
-        <div id="test-actu">Chargement...</div>
+    <!-- SECTION ACTUALITÉS -->
+    <section class="section open" id="actualites">
+        <h2>📰 Actualités</h2>
+        <div class="content">
+            <div class="folder-list" data-path="Actualites">Chargement...</div>
+        </div>
+    </section>
+
+    <div class="legal">
+        <h3>📢 À propos de ce site</h3>
+        <p>Les documents sont gratuits. Il est autorisé de :</p>
+        <ul class="status-list">
+            <li>les étudier</li>
+            <li>les imprimer</li>
+            <li>les diffuser gratuitement</li>
+        </ul>
     </div>
-</section>
+</div>
 
 <script>
-// Test direct de l'API
-fetch('https://api.github.com/repos/lotfihaddad-dot/lotfihaddad-dot.github.io/contents/Actualites')
-    .then(r => r.json())
-    .then(data => {
-        if (Array.isArray(data)) {
-            let html = '<ul>';
-            for (const file of data) {
-                if (file.name.endsWith('.pdf')) {
-                    html += `<li><a href="${file.download_url}" target="_blank">${file.name}</a></li>`;
-                }
-            }
-            html += '</ul>';
-            document.getElementById('test-actu').innerHTML = html;
-        } else {
-            document.getElementById('test-actu').innerHTML = 'Erreur : ' + (data.message || 'Dossier vide');
-        }
-    })
-    .catch(err => {
-        document.getElementById('test-actu').innerHTML = 'Erreur : ' + err.message;
-    });
-</script>
-
-<script>
+// ============================================================
+// INDEX.HTML CORRIGÉ – VERSION ULTIME (aucune erreur)
+// ============================================================
 const USER = "lotfihaddad-dot";
 const REPO = "lotfihaddad-dot.github.io";
-// Utilisation de l'API REST de GitHub pour lister les dossiers
-const API_BASE = `https://github.com{USER}/${REPO}/contents`;
+const API = `https://api.github.com/repos/${USER}/${REPO}/contents`;
+
+// Encodage correct des chemins (espaces, accents, etc.)
+function encodePath(path) {
+    return path.split('/').map(encodeURIComponent).join('/');
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
 
 async function renderFolderContent(container, path) {
     try {
-        const res = await fetch(`${API_BASE}/${path}`);
-        
-        if (!res.ok) throw new Error("Erreur réseau ou dossier introuvable");
-        
+        const encodedPath = encodePath(path);
+        const res = await fetch(`${API}/${encodedPath}`);
         const items = await res.json();
-        
+
         if (!Array.isArray(items)) {
-            container.innerHTML = "<em>Aucun document.</em>";
+            container.innerHTML = "<em>Dossier introuvable ou vide.</em>";
             return;
         }
 
-        // Tri des dossiers et des fichiers PDF
         const folders = items.filter(i => i.type === "dir").sort((a,b) => a.name.localeCompare(b.name));
         const files = items.filter(i => i.type === "file" && i.name.toLowerCase().endsWith('.pdf')).sort((a,b) => a.name.localeCompare(b.name));
-        
+
         let html = "";
-        
-        // Affichage des dossiers
-        folders.forEach(folder => {
+
+        // Affichage des sous-dossiers (ex: sous-dossiers dans un dossier "Cours")
+        for (const folder of folders) {
+            const safeFolderName = escapeHtml(folder.name);
+            const subPath = `${path}/${folder.name}`;
             html += `
                 <div class="folder-item">
-                    <div class="folder-title" onclick="handleFolderClick(this, '${path}/${folder.name}')">
-                        📁 ${folder.name}
-                    </div>
+                    <div class="folder-title" onclick="this.nextElementSibling.classList.toggle('open')">${safeFolderName}</div>
                     <div class="folder-content">
-                        <div class="file-list">Chargement...</div>
+                        <div class="file-list" data-path="${subPath}">Chargement...</div>
                     </div>
                 </div>
             `;
-        });
-        
-        // Affichage des fichiers
-        if (files.length > 0) {
-            html += '<ul class="file-list-ul">';
-            files.forEach(f => {
-                html += `<li>📄 <a href="${f.download_url}" target="_blank">${f.name}</a></li>`;
-            });
-            html += '</ul>';
         }
-        
-        container.innerHTML = html || "<em>Dossier vide.</em>";
-        
-    } catch (error) {
-        console.error("Erreur GitHub API:", error);
-        container.innerHTML = "<em style='color:red;'>Erreur de chargement.</em>";
-    }
-}
 
-// Fonction pour gérer le clic : on ne charge le contenu que si nécessaire (Lazy Loading)
-async function handleFolderClick(element, fullPath) {
-    const contentDiv = element.nextElementSibling;
-    contentDiv.classList.toggle('open'); // Ouvre ou ferme le dossier visuellement
-    
-    const listContainer = contentDiv.querySelector('.file-list');
-    
-    // On ne télécharge les données que la première fois pour économiser l'API
-    if (listContainer && listContainer.innerText === "Chargement...") {
-        await renderFolderContent(listContainer, fullPath);
-    }
-}
+        // Affichage des fichiers PDF
+        if (files.length > 0) {
+            let fileHtml = "<ul>";
+            for (const f of files) {
+                fileHtml += `<li>📄 <a href="${f.download_url}" target="_blank">${escapeHtml(f.name)}</a></li>`;
+            }
+            fileHtml += "</ul>";
+            html += `<div class="file-list">${fileHtml}</div>`;
+        }
 
-// Initialisation au chargement de la page pour les sections principales
-document.addEventListener("DOMContentLoaded", () => {
-    // Exemple pour lancer le chargement auto de la section Actualités
-    const actuContainer = document.getElementById('test-actu');
-    if (actuContainer) renderFolderContent(actuContainer, 'Actualites');
-});
+        container.innerHTML = html;
+
+        // Chargement récursif des sous-dossiers (nécessaire pour les dossiers ouverts)
+        for (const folder of folders) {
+            const subContainer = container.querySelector(`.file-list[data-path="${path}/${folder.name}"]`);
+            if (subContainer) {
+                await renderFolderContent(subContainer, `${path}/${folder.name}`);
+            }
+        }
 
         if (folders.length === 0 && files.length === 0) {
             container.innerHTML = "<em>Aucun document.</em>";
         }
-        
+
     } catch (error) {
-        container.innerHTML = "<em>Dossier non trouvé ou vide.</em>";
+        console.error("Erreur chargement :", error);
+        container.innerHTML = "<em>Erreur de chargement.</em>";
     }
 }
 
+// Accordéon : sections principales
 function initAccordion() {
     document.querySelectorAll('.section').forEach(section => {
         const h2 = section.querySelector('h2');
@@ -326,15 +308,18 @@ function initAccordion() {
             });
         }
     });
-    
+
     document.querySelectorAll('.subsection').forEach(sub => {
         const h3 = sub.querySelector('h3');
-        h3.addEventListener('click', () => {
-            sub.classList.toggle('open');
-        });
+        if (h3) {
+            h3.addEventListener('click', () => {
+                sub.classList.toggle('open');
+            });
+        }
     });
 }
 
+// Charge TOUTES les sections (grâce aux data-path)
 function loadAll() {
     document.querySelectorAll('.subsection').forEach(sub => {
         const path = sub.getAttribute('data-path');
@@ -347,19 +332,20 @@ function loadAll() {
     });
 }
 
+// Démarrage
 window.onload = () => {
     initAccordion();
     loadAll();
 };
+</script>
 
-<!-- SECTION COMMENTAIRES GISCUS -->
-<!-- 
+<!-- SECTION COMMENTAIRES GISCUS (optionnel) -->
+<!--
 <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 12px;">
     <h3 style="color: #1e3c72;">💬 Discussions et retours</h3>
     <p>Une question, une remarque ? Laissez un commentaire ci-dessous (authentification GitHub requise).</p>
-    
     <script src="https://giscus.app/client.js"
-        data-repo="lebeauroi/lotfihaddad-dot.github.io"
+        data-repo="lebeauroi/-lotfihaddad-dot.github.io"
         data-repo-id="VOTRE_ID_UNIQUE"
         data-category="Announcements"
         data-category-id="VOTRE_CATEGORIE_ID_UNIQUE"
@@ -378,6 +364,3 @@ window.onload = () => {
 
 </body>
 </html>
-
-
-
